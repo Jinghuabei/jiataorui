@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>导航栏</title>
+    <link
+      rel="stylesheet"
+      href="https:/cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+      * {
+        /* 取消页面内外边距 */
+        margin: 0;
+        padding: 0;
+        /* 告诉浏览器，所边距和内边距的值包含在总高内的 */
+        box-sizing: border-box;
+      }
+      body {
+        font-size: 16px;
+        background-image: linear-gradient(to right, #fbd787, #c6ffdd);
+        margin: 0;
+      }
+      h3 {
+        font-family: 楷体;
+        color: rgb(54, 52, 52);
+      }
+      .con {
+        /* 弹性布局 水平 居中 */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* 100%的窗口高度 */
+        height: 100vh;
+        /* 行高 */
+        line-height: 80px;
+        font-size: 30px;
+        /* 字间距 */
+        letter-spacing: 15px;
+      }
+      .wrapper {
+        /* 固定定位，即使窗口滚动也不移动 */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        /* 背景渐变 */
+        background: linear-gradient(200deg, #ec77ab, #7873f5);
+        /* 将元素剪切成一个圆形【25表示圆的半径】【calc（100% - 45px） 45px表示圆心】 */
+        clip-path: circle(25px at calc(100% - 45px) 45px);
+        /* 过渡动画 */
+        transition: all 0.3s ease-in-out;
+      }
+      .menu-btn {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        z-index: 2;
+        background: linear-gradient(200deg, #ec77ab, #7873f5);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 50px;
+        color: #fff;
+        font-size: 20px;
+        cursor: pointer;
+        /* 过渡动画 */
+        transition: all 0.3s ease;
+      }
+      /* 隐藏复选框 */
+      #menu_btn {
+        display: none;
+      }
+      #menu_btn:checked ~ .wrapper {
+        /* 将元素剪切成一个圆形 75%表示它的半径 */
+        clip-path: circle(75%);
+      }
+      #menu_btn:checked ~ .menu-btn {
+        color: #d576ab;
+        background: #fff;
+      }
+      #menu_btn:checked ~ .menu-btn i::before {
+        content: "\f00d";
+      }
+      .wrapper ul {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+      }
+      .wrapper ul li {
+        margin: 30px 0px;
+      }
+      .wrapper ul li a {
+        color: #fff;
+        font-size: 30px;
+        font-weight: 500;
+        padding: 5px 50px;
+        position: relative;
+        line-height: 50px;
+      }
+      .wrapper ul li a::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 50px;
+        background: #fff;
+        border-radius: 50px;
+        z-index: -1;
+        left: 0px;
+        transform: scaleY(0);
+        transition: transform 0.3s ease;
+      }
+      .wrapper ul li a:hover::after {
+        transform: scaleY(1);
+      }
+      .wrapper ul li a:hover {
+        color: #d576ab;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="checkbox" id="menu_btn" />
+    <label for="menu_btn" class="menu-btn">
+      <i class="fa fa-bars" aria-hidden="true"></i>
+    </label>
+    <div class="con">
+      <img
+        style="width: 150px; height: 150px; border-radius: 50%"
+        src="https://tse1-mm.cn.bing.net/th/id/R-C.b5d91a70054a853382138351feed475c?rik=tussMYVfIyQIBA&riu=http%3a%2f%2fimg2.woyaogexing.com%2f2017%2f05%2f03%2f8c9a94cb856d8500!400x400_big.jpg&ehk=ebZlUz4YOZ41UMQCQijsmIGz9upwVm5ZCdg6nkfJHYs%3d&risl=&pid=ImgRaw&r=0"
+      />
+      <h3>贾涛瑞</h3>
+    </div>
+    <div class="wrapper">
+      <ul style="list-style: none" class="menu">
+        <li>
+          <a style="text-decoration: none" href="index 02.html">首页</a>
+        </li>
+        <li><a style="text-decoration: none" href="#">无</a></li>
+        <li><a style="text-decoration: none" href="#">无</a></li>
+        <li><a style="text-decoration: none" href="#">无</a></li>
+        <li><a style="text-decoration: none" href="#">无</a></li>
+      </ul>
+    </div>
+  </body>
+</html>
